@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const JoinUsPage = () => {
   return (
@@ -7,7 +8,7 @@ const JoinUsPage = () => {
 
         {/* Logo */}
         <div>
-          <img src="/assets/logo.png" alt="Logo" className="mx-auto w-24 h-24 object-contain" />
+          <Image src="/assets/logo.png" alt="Logo" className="mx-auto w-24 h-24 object-contain" />
         </div>
 
         {/* Heading */}
@@ -15,7 +16,7 @@ const JoinUsPage = () => {
 
         {/* Subheading */}
         <p className="text-sm text-gray-600">
-          Create your Nike Member profile and get first access to the very best of Nike products.
+          Create your Nike Member profile and get first access to the very best of Nike products
         </p>
 
         {/* Join Us Form */}
@@ -93,7 +94,7 @@ const JoinUsPage = () => {
 
         {/* Already a Member */}
         <p className="text-sm text-gray-600">
-          Already a member? <a href="/signin" className="text-black font-semibold hover:underline">Sign in</a>
+          Already a member <a href="/signin" className="text-black font-semibold hover:underline">Sign in</a>
         </p>
       </div>
     </div>

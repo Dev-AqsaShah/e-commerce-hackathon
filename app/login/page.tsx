@@ -38,9 +38,9 @@ const LoginPage = () => {
         {/* Forgotten Password Link */}
         <div className="text-right mb-6">
           <Link href="#" className="text-sm text-black hover:underline">
-            Forgotten Password?
+            Forgotten Password
           </Link>
-          <p className='text-center mt-5'>By Logging in, you agree to Nike's <span className='underline'> Privacy Policy and terms of Use</span></p>
+          <p className="text-center mt-5">By Logging in you agree to Nike <span className="underline"> Privacy Policy and terms of Use</span></p>
         </div>
 
         {/* Sign In Button */}
@@ -50,7 +50,7 @@ const LoginPage = () => {
 
         {/* Not a Member Link */}
         <p className="mt-4 text-center">
-          <span>Not a member? </span>
+          <span>Not a member </span>
           <Link href="#" className="text-blue-600 hover:underline">
             Join In
           </Link>

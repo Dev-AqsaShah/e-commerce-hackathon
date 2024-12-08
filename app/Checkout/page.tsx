@@ -6,10 +6,10 @@ const CheckoutPage = () => {
       <div className="max-w-6xl mx-auto bg-white p-6 md:p-8 rounded-lg shadow-lg flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-8">
         {/* Left Section (Form for Order Details) */}
         <div className="w-full md:w-2/3">
-          <h3 className="text-2xl font-semibold mb-4 text-center md:text-left">How would you like to get your order?</h3>
+          <h3 className="text-2xl font-semibold mb-4 text-center md:text-left">How would you like to get your order</h3>
           <p className="text-sm text-gray-600 mb-6 text-center md:text-left">
-            Please fill in your information to proceed with the order placement.<br/>
-            Customs regulation for india require a copy of the recipients KYC.<br/> The address on the KYC needs to match the shipping address.
+            Please fill in your information to proceed with the order placement<br/>
+            Customs regulation for india require a copy of the recipients KYC<br/> The address on the KYC needs to match the shipping address.
           </p>
 
           {/* Order Information Form */}
@@ -86,7 +86,7 @@ const CheckoutPage = () => {
                 <Image src="/assets/hero6.png" alt="Product Image" width={80} height={80} className="object-cover" />
                 <div>
                   <h3 className="text-lg font-semibold">Nike Dri-FIT ADV TechKnit Ultra</h3>
-                  <p className="text-sm text-gray-500">Men's Short-Sleeve Running Top</p>
+                  <p className="text-sm text-gray-500">Men Short-Sleeve Running Top</p>
                   <p className="text-sm text-gray-500">Ashen Slate/Cobalt Bliss</p>
                   <p className="text-sm text-gray-500">Size: L</p>
                   {/* Price and Quantity */}
