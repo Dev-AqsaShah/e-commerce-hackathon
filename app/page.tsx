@@ -288,7 +288,7 @@ export default function PageSections() {
       {/* Section 5: Placeholder */}
     <div className="flex flex-col items-center justify-center  py-10 text-left">
       {/* Image */}
-      <img
+      <Image
         src="/assets/herolast.png"
         alt="Flight Essentials"
         className="w-full max-w-4xl h-auto"
@@ -313,7 +313,7 @@ export default function PageSections() {
      
     <div className="relative w-full h-screen">
       {/* Background Image */}
-      <img
+      <Image
         src="/assets/lasthero.png"
         alt="The Essentials"
         className="w-[1000] h-[400] object-cover"
