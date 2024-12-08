@@ -1,5 +1,4 @@
-import Image from 'next/image';
-import { FaHeart, FaTrashAlt } from 'react-icons/fa';
+import Image from "next/image";
 
 const CheckoutPage = () => {
   return (
@@ -10,7 +9,7 @@ const CheckoutPage = () => {
           <h3 className="text-2xl font-semibold mb-4 text-center md:text-left">How would you like to get your order?</h3>
           <p className="text-sm text-gray-600 mb-6 text-center md:text-left">
             Please fill in your information to proceed with the order placement.<br/>
-            Customs regulation for india require a copy of the recipient's KYC.<br/> The address on the KYC needs to match the shipping address.
+            Customs regulation for india require a copy of the recipients KYC.<br/> The address on the KYC needs to match the shipping address.
           </p>
 
           {/* Order Information Form */}
@@ -103,7 +102,7 @@ const CheckoutPage = () => {
                 <Image src="/assets/hero3.png" alt="Product Image" width={80} height={80} className="object-cover" />
                 <div>
                   <h3 className="text-lg font-semibold">Nike Air Max 97 SE</h3>
-                  <p className="text-sm text-gray-500">Men's Shoes</p>
+                  <p className="text-sm text-gray-500">Men Shoes</p>
                   <p className="text-sm text-gray-500">Flat Pewter/Light Bone/Black/White</p>
                   <p className="text-sm text-gray-500">Size: L</p>
                   {/* Price and Quantity */}

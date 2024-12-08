@@ -82,7 +82,7 @@ export default function PageSections() {
         {/* Product Image with bg-gray-300 */}
         <div className="w-full h-72  mb-4 flex items-center justify-center">
           <span>
-            <Image src={"/assets/hero2.png"} alt='' width={300} height={130} />
+            <Image src={"/assets/hero2.png"} alt="" width={300} height={130} />
           </span>
         </div>
 
@@ -244,7 +244,7 @@ export default function PageSections() {
         </div>
         <div className="text-left mt-4">
           <p className="font-semibold">Nike Dri-FIT ADV Run Division</p>
-          <p>Women's Long-Sleeve</p>
+          <p>Women Long-Sleeve</p>
           <p>Running Top</p>
           <p className="text-lg font-semibold text-gray-800 mt-2">₹ 5 295</p>
         </div>
@@ -263,7 +263,7 @@ export default function PageSections() {
         </div>
         <div className="text-left mt-4">
           <p className="font-semibold">Nike Fast</p>
-          <p>Women's Mid-Rise 7/8 Running</p>
+          <p>Women Mid-Rise 7/8 Running</p>
           <p>Leggings with Pockets</p>
           <p className="text-lg font-semibold text-gray-800 mt-2">₹ 3 795</p>
         </div>
@@ -361,11 +361,11 @@ export default function PageSections() {
 
   {/* Column 4 */}
   <div>
-    <p className="mb-3 font-semibold">Kids'</p>
+    <p className="mb-3 font-semibold">Kids</p>
     <p className="mb-2 text-gray-500">Infant & Toddler Shoes</p>
-    <p className="mb-2 text-gray-500">Kids' Shoes</p>
-    <p className="mb-2 text-gray-500">Kids' Jordan Shoes</p>
-    <p className="mb-2 text-gray-500">Kids' Basketball Shoes</p>
+    <p className="mb-2 text-gray-500">Kids Shoes</p>
+    <p className="mb-2 text-gray-500">Kids Jordan Shoes</p>
+    <p className="mb-2 text-gray-500">Kids Basketball Shoes</p>
   </div>
 </div>
 
