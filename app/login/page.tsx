@@ -40,7 +40,7 @@ const LoginPage = () => {
           <Link href="#" className="text-sm text-black hover:underline">
             Forgotten Password?
           </Link>
-          <p className='text-center mt-5'>By Logging in. you agree to Nike's <span className='underline'> Privacy Policy and terms of Use</span></p>
+          <p className='text-center mt-5'>By Logging in, you agree to Nike's <span className='underline'> Privacy Policy and terms of Use</span></p>
         </div>
 
         {/* Sign In Button */}

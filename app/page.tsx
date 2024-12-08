@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 
@@ -10,7 +10,7 @@ export default function PageSections() {
         {/* Heading */}
         <h2 className="text-2xl font-bold mb-2">Hello Nike App</h2>
         <h4 className="text-lg mb-4">
-          Download the app to access everything Nike.{' '}
+          Download the app to access everything Nike.{""}
           <span className="underline decoration-black font-semibold">Get your great</span>
         </h4>
 
@@ -90,7 +90,7 @@ export default function PageSections() {
         <div className="flex justify-between items-center ">
           <div className="text-left pl-8">
             <p className="font-semibold">Nike Air Max Pulse</p>
-            <p className="text-sm text-gray-600">Women's Shoes</p>
+            <p className="text-sm text-gray-600">Women Shoes</p>
           </div>
           <p className="text-right text-lg text-gray-800 pr-8">₹ 13 995</p>
         </div>
@@ -101,7 +101,7 @@ export default function PageSections() {
         {/* Product Image with bg-gray-300 */}
         <div className="w-full h-72  mb-4 flex items-center justify-center">
           <span>
-            <Image src={"/assets/hero3.png"} alt='' width={300} height={130} />
+            <Image src={"/assets/hero3.png"} alt="" width={300} height={130} />
           </span>
         </div>
 
@@ -109,7 +109,7 @@ export default function PageSections() {
         <div className="flex justify-between items-center gap-2">
           <div className="text-left pl-8">
             <p className="font-semibold">Nike Air Max Pulse</p>
-            <p className="text-sm text-gray-600">Men's Shoes</p>
+            <p className="text-sm text-gray-600">Men Shoes</p>
           </div>
           <p className="text-right text-lg text-gray-800 pr-8">₹ 13 995</p>
         </div>
@@ -120,7 +120,7 @@ export default function PageSections() {
         {/* Product Image with bg-gray-300 */}
         <div className="w-full h-72  mb-4 flex items-center justify-center">
           <span>
-            <Image src={"/assets/hero4.png"} alt='' width={300} height={130} />
+            <Image src={"/assets/hero4.png"} alt="" width={300} height={130} />
           </span>
         </div>
 
@@ -128,7 +128,7 @@ export default function PageSections() {
         <div className="flex justify-between items-center ">
           <div className="text-left pl-8">
             <p className="font-semibold">Nike Air Max 97 SE</p>
-            <p className="text-sm text-gray-600">Men's Shoes</p>
+            <p className="text-sm text-gray-600">Men Shoes</p>
           </div>
           <p className="text-right text-lg text-gray-800 pr-8">₹ 16 995</p>
         </div>

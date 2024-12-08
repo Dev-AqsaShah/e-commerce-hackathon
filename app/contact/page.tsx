@@ -43,7 +43,7 @@ const ContactPage = () => {
             <FaEnvelope className="text-4xl text-black" />
             <div>
               <h3 className="text-xl font-semibold">Email Us</h3>
-              <p className="text-gray-600">We'll reply within five business days</p>
+              <p className="text-gray-600">We will reply within five business days</p>
             </div>
           </div>
 
@@ -52,7 +52,7 @@ const ContactPage = () => {
             <FaMapMarkerAlt className="text-4xl text-black" />
             <div>
               <h3 className="text-xl font-semibold">STORE Location</h3>
-              <p className="text-gray-600">Find Nike retails stores near you</p>
+              <p className="text-gray-600">Find Nike retail stores near you</p>
             </div>
           </div>
         </div>

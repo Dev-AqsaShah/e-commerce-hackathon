@@ -1,18 +1,18 @@
 "use client"
 
-import { FaRegHeart, FaSearch } from 'react-icons/fa';
+import { FaRegHeart, FaSearch } from "react-icons/fa";
 import { RiShoppingBagLine } from "react-icons/ri";
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = () => {
     // Placeholder functionality - you can integrate API or real data later
-    if (searchQuery.trim() === '') {
-      alert('Please enter a product name to search.');
+    if (searchQuery.trim() === "") {
+      alert("Please enter a product name to search.");
     } else {
       console.log(`Searching for: ${searchQuery}`);
       // Implement search navigation or API call here
