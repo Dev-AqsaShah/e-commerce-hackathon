@@ -206,7 +206,7 @@ export default function PageSections() {
         {/* Product Description */}
         <div className="text-left mt-4">
           <p className="font-semibold">Nike Dri-FIT ADV TechKnit Ultra</p>
-          <p>Men's Short-Sleeve</p>
+          <p>Men Short-Sleeve</p>
           <p>Running Top</p>
           <p className="text-lg font-semibold text-gray-800 mt-2">₹ 999</p>
         </div>
@@ -225,7 +225,7 @@ export default function PageSections() {
         </div>
         <div className="text-left mt-4">
           <p className="font-semibold">Nike Dri-FIT Challenger</p>
-          <p>Men's 18cm(approx.)2-</p>
+          <p>Men 18cm(approx.)2-</p>
           <p>in-1 Versatile Shorts</p>
           <p className="text-lg font-semibold text-gray-800 mt-2">₹ 2 495</p>
         </div>
@@ -297,7 +297,7 @@ export default function PageSections() {
       {/* Content Below Image */}
       <div className="text-center mt-6">
         <h1 className="text-5xl font-bold">Flight Essentials</h1>
-        <p className="text-lg mt-2">Your built-to-last, all-week wears—but with style only Jordan Brand can deliver.</p>
+        <p className="text-lg mt-2">Your built-to-last all-week wears—but with style only Jordan Brand can deliver.</p>
         <button className="mt-4 bg-black text-white px-6 py-3 rounded hover:bg-opacity-80 transition">
           Shop Now
         </button>
