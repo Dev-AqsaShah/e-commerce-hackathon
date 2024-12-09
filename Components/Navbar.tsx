@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { FaRegHeart, FaSearch } from "react-icons/fa";
+import { FaRegHeart, FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { RiShoppingBagLine } from "react-icons/ri";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,55 +8,68 @@ import { useState } from "react";
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for menu toggle
 
   const handleSearch = () => {
-    // Placeholder functionality - you can integrate API or real data later
     if (searchQuery.trim() === "") {
       alert("Please enter a product name to search.");
     } else {
       console.log(`Searching for: ${searchQuery}`);
-      // Implement search navigation or API call here
     }
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
     <nav className="flex items-center justify-between px-4 py-3 bg-white border-b border-gray-200">
       {/* Left Side - Logo */}
       <div className="flex items-center">
-        <Link href="/" className='hover:text-gray-500'>
-        <Image
-          src="/assets/logo.png" // Replace with your logo image in the public folder
-          alt="Logo"
-          width={50}
-          height={50}
-          className="object-contain"
-        />
+        <Link href="/" className="hover:text-gray-500">
+          <Image
+            src="/assets/logo.png"
+            alt="Logo"
+            width={50}
+            height={50}
+            className="object-contain"
+          />
         </Link>
       </div>
 
-      {/* Center - Navigation Links */}
-      <div className="hidden lg:flex space-x-4 text-sm font-medium text-gray-800 gap-10">
-        <Link href="/products" className="hover:text-gray-500">
+      {/* Center - Navigation Links (Hidden on Small Screens) */}
+      <div
+        className={`fixed top-0 left-0 w-3/4 h-full bg-white z-20 flex flex-col items-start justify-start gap-6 p-6 transform ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform lg:static lg:flex-row lg:gap-10 lg:transform-none lg:text-sm lg:font-medium lg:items-center lg:space-x-4 text-gray-800`}
+      >
+        {/* Close Icon */}
+        <FaTimes
+          className="text-2xl text-gray-800 cursor-pointer self-end mb-4 lg:hidden"
+          onClick={toggleMenu}
+        />
+
+        <Link href="/products" className="hover:text-gray-500" onClick={toggleMenu}>
           New & Featured
         </Link>
-        <Link href="/products" className="hover:text-gray-500">
+        <Link href="/products" className="hover:text-gray-500" onClick={toggleMenu}>
           Men
         </Link>
-        <Link href="/products" className="hover:text-gray-500">
+        <Link href="/products" className="hover:text-gray-500" onClick={toggleMenu}>
           Women
         </Link>
-        <Link href="/products" className="hover:text-gray-500">
+        <Link href="/products" className="hover:text-gray-500" onClick={toggleMenu}>
           Kids
         </Link>
-        <Link href="/products" className="hover:text-gray-500">
+        <Link href="/products" className="hover:text-gray-500" onClick={toggleMenu}>
           Sale
         </Link>
-        <Link href="/products" className="hover:text-gray-500">
+        <Link href="/products" className="hover:text-gray-500" onClick={toggleMenu}>
           SNKRS
         </Link>
       </div>
 
-      {/* Right Side - Search, Wishlist, Shopping Bag */}
+      {/* Right Side - Icons */}
       <div className="flex items-center space-x-4">
         {/* Search */}
         <div className="flex items-center border rounded-full px-3 py-2 text-sm text-gray-700 bg-gray-100">
@@ -82,6 +95,14 @@ const Navbar = () => {
         <Link href="/cart">
           <RiShoppingBagLine className="text-xl hover:text-gray-500 cursor-pointer" />
         </Link>
+
+        {/* Hamburger Menu Toggle */}
+        <div className="lg:hidden">
+          <FaBars
+            className="text-2xl text-gray-800 cursor-pointer"
+            onClick={toggleMenu}
+          />
+        </div>
       </div>
     </nav>
   );
