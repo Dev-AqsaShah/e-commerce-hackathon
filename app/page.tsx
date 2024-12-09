@@ -284,51 +284,52 @@ export default function PageSections() {
 
 
 
+<div className="flex flex-col items-center justify-center py-10 px-4 sm:px-6 lg:px-8 text-left">
+  {/* Image */}
+  <Image
+    src="/assets/herolast.png"
+    alt="Flight Essentials"
+    width={5000}
+    height={400}
+    className="w-full max-w-4xl h-auto rounded-lg"
+  />
 
-      {/* Section 5: Placeholder */}
-    <div className="flex flex-col items-center justify-center  py-10 text-left">
-      {/* Image */}
-      <Image
-        src="/assets/herolast.png"
-        alt="Flight Essentials"
-        width={1000}
-        height={700}
-        className="w-[1200px] max-w-4xl h-auto "
-      />
-
-      {/* Content Below Image */}
-      <div className="text-center mt-6">
-        <h1 className="text-5xl font-bold">Flight Essentials</h1>
-        <p className="text-lg mt-2">Your built-to-last all-week wears—but with style only Jordan Brand can deliver.</p>
-        <button className="mt-4 bg-black text-white px-6 py-3 rounded hover:bg-opacity-80 transition">
-          Shop Now
-        </button>
-      </div>
-    </div>
-
-
-
-
+  {/* Content Below Image */}
+  <div className="text-center mt-6 max-w-2xl">
+    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+      Flight Essentials
+    </h1>
+    <p className="text-sm sm:text-base lg:text-lg mt-2 text-gray-600">
+      Your built-to-last all-week wears—but with style only Jordan Brand can deliver.
+    </p>
+    <button className="mt-4 bg-black text-white px-6 py-2 sm:py-3 rounded hover:bg-opacity-80 transition">
+      Shop Now
+    </button>
+  </div>
+</div>
 
 
-      {/* Section 6: Placeholder */}
-     
-    <div className="relative w-[1200px] h-[600] pl-28">
-      {/* Background Image */}
-      <Image
-        src="/assets/lasthero.png"
-        alt="The Essentials"
-        width={1000}
-        height={700}
-        className="w-[1000px] h-[400px] object-cover"
-      />
-      {/* Text at the Top */}
-      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 px-4 py-2 rounded-md sm:top-6 sm:px-6 md:top-8 lg:top-10">
-        <h1 className="text-white text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">
-          The Essentials
-        </h1>
-      </div>
-    </div>
+
+<div className="relative w-full max-w-7xl mx-auto h-[420px] sm:h-[500px] lg:h-[400px] px-4 sm:px-6 lg:px-8">
+  {/* Background Image */}
+  <Image
+    src="/assets/lasthero.png"
+    alt="The Essentials"
+    layout="fill"
+    className="object-cover rounded-lg"
+  />
+
+  {/* Text Overlay */}
+  <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 px-4 py-2 rounded-md sm:top-6 sm:px-6 md:top-8 lg:top-10">
+    <h1 className="text-white text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">
+      The Essentials
+    </h1>
+  </div>
+</div>
+
+
+
+
 
 
 
