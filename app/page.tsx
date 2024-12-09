@@ -291,7 +291,9 @@ export default function PageSections() {
       <Image
         src="/assets/herolast.png"
         alt="Flight Essentials"
-        className="w-full max-w-4xl h-auto"
+        width={1000}
+        height={700}
+        className="w-[1200px] max-w-4xl h-auto "
       />
 
       {/* Content Below Image */}
@@ -311,12 +313,14 @@ export default function PageSections() {
 
       {/* Section 6: Placeholder */}
      
-    <div className="relative w-full h-screen">
+    <div className="relative w-[1200px] h-[600] pl-28">
       {/* Background Image */}
       <Image
         src="/assets/lasthero.png"
         alt="The Essentials"
-        className="w-[1000] h-[400] object-cover"
+        width={1000}
+        height={700}
+        className="w-[1000px] h-[400px] object-cover"
       />
       {/* Text at the Top */}
       <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 px-4 py-2 rounded-md sm:top-6 sm:px-6 md:top-8 lg:top-10">
@@ -331,7 +335,7 @@ export default function PageSections() {
 
 
      
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 p-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 pl-20">
   {/* Column 1 */}
   <div>
     <p className="mb-3 font-semibold">Icons</p>

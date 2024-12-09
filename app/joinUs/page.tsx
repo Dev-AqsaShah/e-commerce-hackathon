@@ -8,7 +8,7 @@ const JoinUsPage = () => {
 
         {/* Logo */}
         <div>
-          <Image src="/assets/logo.png" alt="Logo" className="mx-auto w-24 h-24 object-contain" />
+          <Image src="/assets/logo.png" alt="Logo" width={400} height={200} className="mx-auto w-24 h-24 object-contain" />
         </div>
 
         {/* Heading */}

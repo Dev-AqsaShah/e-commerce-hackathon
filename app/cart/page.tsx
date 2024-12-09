@@ -15,7 +15,9 @@ const CartPage = () => {
             {/* Item 1 */}
             <div className="flex flex-col sm:flex-row justify-between items-center border-b pb-4">
               <div className="flex items-center space-x-4">
-                <Image src="/assets/hero6.png" alt="Product Image" className="w-20 h-20 object-cover" />
+                <Image src="/assets/hero6.png" alt="Product Image"
+                width={300} height={100}
+                className="w-20 h-20 object-cover" />
                 <div>
                   <h3 className="text-lg font-semibold">Nike Dri-FIT ADV TechKnit Ultra</h3>
                   <p className="text-sm text-gray-500">Men Short-Sleeve Running Top</p>
