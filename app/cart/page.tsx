@@ -34,7 +34,9 @@ const CartPage = () => {
             {/* Item 2 */}
             <div className="flex flex-col sm:flex-row justify-between items-center border-b pb-4">
               <div className="flex items-center space-x-4">
-                <Image src="/assets/hero3.png" alt="Product Image" className="w-20 h-20 object-cover" />
+                <Image src="/assets/hero3.png" alt="Product Image"
+                width={300} height={100}
+                className="w-20 h-20 object-cover" />
                 <div>
                   <h3 className="text-lg font-semibold">Nike Air Max 97 SE</h3>
                   <p className="text-sm text-gray-500">Men Shoes</p>
