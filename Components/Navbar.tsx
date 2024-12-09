@@ -4,11 +4,17 @@ import { FaRegHeart, FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { RiShoppingBagLine } from "react-icons/ri";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for menu toggle
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Initial state set to false
+
+  useEffect(() => {
+    // This effect ensures that the component is only using client-side rendering
+    // and doesn't show the menu open immediately when the page is loaded.
+    setIsMenuOpen(false); // Ensuring the menu starts closed after hydration
+  }, []);
 
   const handleSearch = () => {
     if (searchQuery.trim() === "") {
@@ -19,7 +25,7 @@ const Navbar = () => {
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
   };
 
   return (
