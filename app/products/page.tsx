@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
 const ProductsPage = () => {
   const products = [
@@ -22,8 +22,8 @@ const ProductsPage = () => {
       <h1 className="text-3xl font-semibold text-center mb-8">Our Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {products.map((product) => (
-          <Link href={`/product/${product.id}`} key={product.id}>
-            <div className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+          <div key={product.id} className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+            <Link href="/productDetails">
               <Image
                 src={product.image}
                 alt={product.name}
@@ -31,13 +31,13 @@ const ProductsPage = () => {
                 height={200}
                 className="w-full h-40 object-cover rounded-md mb-4"
               />
-              <p className="text-xs text-red-500 font-bold uppercase">Just In</p>
-              <h3 className="text-lg font-semibold mt-2">{product.name}</h3>
-              <p className="text-sm text-gray-500">{product.category}</p>
-              <p className="text-sm text-gray-600">Color: {product.color}</p>
-              <p className="text-sm text-gray-700 font-semibold mt-2">MRP: {product.price}</p>
-            </div>
-          </Link>
+            </Link>
+            <p className="text-xs text-red-500 font-bold uppercase">Just In</p>
+            <h3 className="text-lg font-semibold mt-2">{product.name}</h3>
+            <p className="text-sm text-gray-500">{product.category}</p>
+            <p className="text-sm text-gray-600">Color: {product.color}</p>
+            <p className="text-sm text-gray-700 font-semibold mt-2">MRP: {product.price}</p>
+          </div>
         ))}
       </div>
     </div>
