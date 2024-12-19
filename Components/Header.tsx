@@ -7,10 +7,10 @@ const Header = () => {
       {/* Left Side - Logo */}
       <div className="flex items-center">
         <Image
-          src="/assets/header.png" // Replace with your logo image in the public folder
+          src="/assets/header.png" 
           alt="Logo"
           width={30}
-          height={30} // Reduced size for smaller height
+          height={30} 
           className="object-contain"
         />
       </div>

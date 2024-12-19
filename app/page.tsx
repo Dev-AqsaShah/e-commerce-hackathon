@@ -17,10 +17,10 @@ export default function PageSections() {
         {/* Large Image */}
         <div className="w-full max-w-6xl my-4">
           <Image
-            src="/assets/hero1.png" // Replace with the actual image path
+            src="/assets/hero1.png" 
             alt="Nike App Preview"
-            width={1200} // Larger width
-            height={600} // Larger height
+            width={1200} 
+            height={600} 
             className="w-full rounded-lg"
           />
         </div>
@@ -156,7 +156,7 @@ export default function PageSections() {
         </div>
         <div className="w-full h-[500px] bg-gray-200 flex items-center justify-center">
           <Image
-            src="/assets/hero5.png" // Replace with actual image path
+            src="/assets/hero5.png" 
             alt="Featured Product"
             width={1200}
             height={500}
@@ -195,7 +195,7 @@ export default function PageSections() {
       <div className="flex flex-col items-center relative">
         <div className="w-full h-72 bg-gray-200 mb-4 flex items-center justify-center">
           <Image
-            src="/assets/hero6.png" // Replace with your actual image path
+            src="/assets/hero6.png" 
             alt="Product 1"
             width={300}
             height={300}
@@ -216,7 +216,7 @@ export default function PageSections() {
       <div className="flex flex-col items-center relative">
         <div className="w-full h-72 bg-gray-200 mb-4 flex items-center justify-center">
           <Image
-            src="/assets/hero7.png" // Replace with your actual image path
+            src="/assets/hero7.png" 
             alt="Product 2"
             width={300}
             height={300}
@@ -235,7 +235,7 @@ export default function PageSections() {
       <div className="flex flex-col items-center relative">
         <div className="w-full h-72 bg-gray-200 mb-4 flex items-center justify-center">
           <Image
-            src="/assets/hero8.png" // Replace with your actual image path
+            src="/assets/hero8.png" 
             alt="Product 3"
             width={300}
             height={300}
@@ -254,7 +254,7 @@ export default function PageSections() {
       <div className="flex flex-col items-center relative">
         <div className="w-full h-72 bg-gray-200 mb-4 flex items-center justify-center">
           <Image
-            src="/assets/hero9.png" // Replace with your actual image path
+            src="/assets/hero9.png" 
             alt="Product 4"
             width={300}
             height={300}
