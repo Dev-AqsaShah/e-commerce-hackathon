@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import SHOES from "@/Components/shoes/page";
+
 
 
 export default function PageSections() {
@@ -50,95 +52,15 @@ export default function PageSections() {
 
 
 
+{/* section 2 */}
 
+    
+export default function Page() 
+    return (
+            <h1 className="text-2xl font-bold text-center py-4">Our Shoe Collection</h1>
+            <SHOES />
+    );
 
-
-
-      {/* Section 2: Placeholder */}
-      <div className="bg-white py-10 px-4">
-  <div className="bg-gray-200 py-10 px-4">
-    {/* Top Section: Title and Buttons */}
-    <div className="flex justify-between items-center mb-4">
-      {/* Left Text */}
-      <h2 className="text-2xl font-bold">Best of Air Max</h2>
-
-      {/* Right Buttons */}
-      <div className="flex gap-4">
-        <button className="bg-gray-300 rounded-full flex items-center px-3 py-4">
-          <FaAngleLeft className="text-lg" />
-        </button>
-        <button className="bg-gray-300 rounded-full flex items-center px-3 py-4">
-          <FaAngleRight className="text-lg" />
-        </button>
-      </div>
-    </div>
-
-    <div className="w-full h-1 bg-black mb-6"></div>
-
-    {/* Product Images with Descriptions */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {/* Product 1 */}
-      <div className="flex flex-col">
-        {/* Product Image with bg-gray-300 */}
-        <div className="w-full h-72  mb-4 flex items-center justify-center">
-          <span>
-            <Image src={"/assets/hero2.png"} alt="" width={300} height={130} />
-          </span>
-        </div>
-
-        {/* Price and Description in Flex */}
-        <div className="flex justify-between items-center ">
-          <div className="text-left pl-8">
-            <p className="font-semibold">Nike Air Max Pulse</p>
-            <p className="text-sm text-gray-600">Women Shoes</p>
-          </div>
-          <p className="text-right text-lg text-gray-800 pr-8">₹ 13 995</p>
-        </div>
-      </div>
-
-      {/* Product 2 */}
-      <div className="flex flex-col">
-        {/* Product Image with bg-gray-300 */}
-        <div className="w-full h-72  mb-4 flex items-center justify-center">
-          <span>
-            <Image src={"/assets/hero3.png"} alt="" width={300} height={130} />
-          </span>
-        </div>
-
-        {/* Price and Description in Flex */}
-        <div className="flex justify-between items-center gap-2">
-          <div className="text-left pl-8">
-            <p className="font-semibold">Nike Air Max Pulse</p>
-            <p className="text-sm text-gray-600">Men Shoes</p>
-          </div>
-          <p className="text-right text-lg text-gray-800 pr-8">₹ 13 995</p>
-        </div>
-      </div>
-
-      {/* Product 3 */}
-      <div className="flex flex-col">
-        {/* Product Image with bg-gray-300 */}
-        <div className="w-full h-72  mb-4 flex items-center justify-center">
-          <span>
-            <Image src={"/assets/hero4.png"} alt="" width={300} height={130} />
-          </span>
-        </div>
-
-        {/* Price and Description in Flex */}
-        <div className="flex justify-between items-center ">
-          <div className="text-left pl-8">
-            <p className="font-semibold">Nike Air Max 97 SE</p>
-            <p className="text-sm text-gray-600">Men Shoes</p>
-          </div>
-          <p className="text-right text-lg text-gray-800 pr-8">₹ 16 995</p>
-        </div>
-      </div>
-    </div>
-
-    {/* Bottom Purple Divider Line */}
-    <div className="w-full h-1 bg-black mt-6"></div>
-  </div>
-</div>
 
 
 
