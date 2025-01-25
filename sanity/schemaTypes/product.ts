@@ -1,3 +1,6 @@
+import { kMaxLength } from "buffer";
+import { title } from "process";
+
 export const productSchema = {
     name: 'product',
     title: 'Product',
@@ -7,6 +10,15 @@ export const productSchema = {
         name: 'productName',
         title: 'Product Name',
         type: 'string',
+      },
+      {
+        name : "slug",
+        type : "slug", 
+        title : "slug",
+        options : {
+          source : "productName",
+          kMaxLength: 96
+        }
       },
       {
         name: 'category',
