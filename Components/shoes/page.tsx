@@ -1,5 +1,6 @@
 "use client";
 
+import { addToCart } from "@/app/actions/actions";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { allProducts } from "@/sanity/lib/queries";
@@ -7,6 +8,7 @@ import { product } from "@/types/products";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const Shoes = () => {
   const [products, setProducts] = useState<product[]>([]);
@@ -18,6 +20,19 @@ const Shoes = () => {
     }
     fetchProducts();
   }, []);
+
+  const handleAddToCart = (e: React.MouseEvent, product: product) => {
+    e.preventDefault()
+    Swal.fire({
+      position : "top-right",
+      icon : "success",
+      title : `${product.productName} added to cart`,
+      showConfirmButton : false,
+      timer : 2000
+    })
+    addToCart(product)
+    
+  }
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-12">
@@ -45,6 +60,12 @@ const Shoes = () => {
                   ${product.price}
                 </span>
               </p>
+              <button
+              className="bg-gradient-to-r from-green-500 to-green-800 text-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:scale-110 transition-transform duration-300 ease-in-out"
+              onClick={(e) => handleAddToCart(e, product) }
+              >
+                Add To Cart
+              </button>
             </div>
           </Link>
         ))}
