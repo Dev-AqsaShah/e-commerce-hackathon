@@ -7,6 +7,7 @@ import { getItems, removeFromCart, updateCartQuantity } from "../actions/actions
 import Swal from "sweetalert2";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import { useRouter } from "next/navigation";
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState<product[]>([]);
@@ -52,6 +53,9 @@ const CartPage = () => {
     return cartItems.reduce((total, item) => total + item.price * item.inventory, 0).toFixed(2);
   };
 
+
+const router = useRouter();
+
   const handleProceed = () => {
     Swal.fire({
       title: "Proceed to Checkout?",
@@ -64,7 +68,10 @@ const CartPage = () => {
     }).then((Result) => {
       if (Result.isConfirmed) {
         Swal.fire("Success", "Your order has been successfully processed.", "success");
+
+        router.push("/Checkout")
         setCartItems([]);
+
       }
     });
   };

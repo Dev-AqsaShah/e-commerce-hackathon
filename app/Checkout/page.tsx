@@ -1,115 +1,188 @@
+"use client";
+
+import { product } from "@/types/products";
+import React, { useEffect, useState } from "react";
+import { getItems } from "../actions/actions";
+import Link from "next/link";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
+import { FaChevronRight } from "react-icons/fa";
+import Swal from "sweetalert2";
 
-const CheckoutPage = () => {
+const Checkout = () => {
+  const [cartItems, setCartItems] = useState<product[]>([]);
+  const [discount, setDiscount] = useState<number>(0);
+  const [formValues, setFormValues] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    address: "",
+    zipCode: "",
+    city: "",
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+    phone: false,
+    address: false,
+    zipCode: false,
+    city: false,
+  });
+
+  useEffect(() => {
+    setCartItems(getItems());
+    const appliedDiscount = localStorage.getItem("appliedDiscount");
+    if (appliedDiscount) {
+      setDiscount(Number(appliedDiscount));
+    }
+  }, []);
+
+  const subTotal = cartItems.reduce(
+    (total, item) => total + item.price * item.inventory,
+    0
+  );
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormValues({
+      ...formValues,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const validateForm = () => {
+    const errors = {
+      firstName: !formValues.firstName,
+      lastName: !formValues.lastName,
+      email: !formValues.email,
+      phone: !formValues.phone,
+      address: !formValues.address,
+      zipCode: !formValues.zipCode,
+      city: !formValues.city,
+    };
+    setFormErrors(errors);
+    return Object.values(errors).every((error) => !error);
+  };
+
+  const handlePlaceOrder = () => {
+    if (validateForm()) {
+      // If the form is valid
+      localStorage.removeItem("appliedDiscount");
+      Swal.fire({
+        title: "Order Placed Successfully!",
+        text: "Thank you for your purchase. Your order has been placed.",
+        icon: "success",
+        confirmButtonText: "OK",
+        confirmButtonColor: "#3085d6",
+      }).then(() => {
+        setCartItems([]); // Clear the cart after the order is placed
+      });
+    } else {
+      // If the form is invalid
+      Swal.fire({
+        title: "Form Incomplete",
+        text: "Please fill in all required fields before placing your order.",
+        icon: "error",
+        confirmButtonText: "OK",
+        confirmButtonColor: "#d33",
+      });
+    }
+  };
+
   return (
-    <div className="bg-gray-100 min-h-screen p-4 md:p-6">
-      <div className="max-w-6xl mx-auto bg-white p-6 md:p-8 rounded-lg shadow-lg flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-8">
-        {/* Left Section (Form for Order Details) */}
-        <div className="w-full md:w-2/3">
-          <h3 className="text-2xl font-semibold mb-4 text-center md:text-left">How would you like to get your order</h3>
-          <p className="text-sm text-gray-600 mb-6 text-center md:text-left">
-            Please fill in your information to proceed with the order placement<br/>
-            Customs regulation for india require a copy of the recipients KYC<br/> The address on the KYC needs to match the shipping address.
-          </p>
-
-          {/* Order Information Form */}
-          <form className="space-y-4">
-            {/* Name */}
-            <div>
-              <label htmlFor="name" className="block text-lg font-semibold">Full Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Enter your full name"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
-                required
-              />
-            </div>
-
-            {/* Address */}
-            <div>
-              <label htmlFor="address" className="block text-lg font-semibold">Address</label>
-              <input
-                type="text"
-                id="address"
-                name="address"
-                placeholder="Enter your address"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
-                required
-              />
-            </div>
-
-            {/* Phone Number */}
-            <div>
-              <label htmlFor="phone" className="block text-lg font-semibold">Phone Number</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="Enter your phone number"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
-                required
-              />
-            </div>
-
-            {/* Delivery Options */}
-            <div>
-              <label htmlFor="delivery" className="block text-lg font-semibold">Delivery Option</label>
-              <select
-                id="delivery"
-                name="delivery"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
-                required
-              >
-                <option value="standard">Standard Delivery</option>
-                <option value="express">Express Delivery</option>
-              </select>
-            </div>
-
-            {/* Submit Button */}
-            <button type="submit" className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black">
-              Place Order
-            </button>
-          </form>
+    <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <div className="mt-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="flex items-center gap-2 py-4 text-sm">
+            <Link href={"/cart"} className="text-gray-600 hover:text-black">
+              Cart
+            </Link>
+            <FaChevronRight />
+            <span className="text-gray-800">Checkout</span>
+          </nav>
         </div>
+      </div>
 
-        {/* Right Section (Product Details) */}
-        <div className="w-full md:w-1/3">
-          <h3 className="text-2xl font-semibold mb-4 text-center md:text-left">Your Order</h3>
-
-          {/* Product Details */}
-          <div className="flex flex-col space-y-4">
-            {/* Product 1 */}
-            <div className="flex flex-col sm:flex-row justify-between items-center border-b pb-4">
-              <div className="flex items-center space-x-4">
-                <Image src="/assets/hero6.png" alt="Product Image" width={80} height={80} className="object-cover" />
-                <div>
-                  <h3 className="text-lg font-semibold">Nike Dri-FIT ADV TechKnit Ultra</h3>
-                  <p className="text-sm text-gray-500">Men Short-Sleeve Running Top</p>
-                  <p className="text-sm text-gray-500">Ashen Slate/Cobalt Bliss</p>
-                  <p className="text-sm text-gray-500">Size: L</p>
-                  {/* Price and Quantity */}
-                  <p className="text-sm text-gray-500 mt-2">Price: ₹ 3,895.00</p>
-                  <p className="text-sm text-gray-500">Quantity: 1</p>
+      {/* Main Content */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Order Summary */}
+          <div className="bg-white border rounded-lg p-6 space-y-6">
+            <h2 className="text-lg font-semibold">Order Summary</h2>
+            {cartItems.length > 0 ? (
+              cartItems.map((item) => (
+                <div key={item._id} className="flex items-center gap-4 py-3 border-b">
+                  <div className="w-16 h-16 rounded overflow-hidden">
+                    {item.image && (
+                      <Image
+                        src={urlFor(item.image).url()}
+                        alt={item.productName}
+                        width={50}
+                        height={50}
+                        className="object-cover w-full h-full"
+                      />
+                    )}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-sm font-medium">{item.productName}</h3>
+                    <p className="text-xs text-gray-500">Quantity: {item.inventory}</p>
+                  </div>
+                  <p>${(item.price * item.inventory).toFixed(2)}</p>
                 </div>
-              </div>
+              ))
+            ) : (
+              <p className="text-sm font-medium text-gray-600">No items in the cart</p>
+            )}
+            <div className="text-right pt-4">
+              <p className="text-sm">
+                Subtotal: <span className="font-medium">${subTotal.toFixed(2)}</span>
+              </p>
+              <p className="text-lg font-semibold">
+                Total: ${subTotal.toFixed(2)}
+              </p>
             </div>
+          </div>
 
-            {/* Product 2 */}
-            <div className="flex flex-col sm:flex-row justify-between items-center border-b pb-4">
-              <div className="flex items-center space-x-4">
-                <Image src="/assets/hero3.png" alt="Product Image" width={80} height={80} className="object-cover" />
-                <div>
-                  <h3 className="text-lg font-semibold">Nike Air Max 97 SE</h3>
-                  <p className="text-sm text-gray-500">Men Shoes</p>
-                  <p className="text-sm text-gray-500">Flat Pewter/Light Bone/Black/White</p>
-                  <p className="text-sm text-gray-500">Size: L</p>
-                  {/* Price and Quantity */}
-                  <p className="text-sm text-gray-500 mt-2">Price: ₹ 16,995.00</p>
-                  <p className="text-sm text-gray-500">Quantity: 1</p>
+          {/* Billing Information */}
+          <div className="bg-white border rounded-lg p-6 space-y-6">
+            <h2 className="text-lg font-semibold">Billing Information</h2>
+            <div className="space-y-4">
+              {Object.keys(formValues).map((key) => (
+                <div key={key} className="space-y-1">
+                  <label
+                    htmlFor={key}
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    {key.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase())}
+                  </label>
+                  <input
+                    type="text"
+                    id={key}
+                    value={(formValues as any)[key]}
+                    onChange={handleInputChange}
+                    placeholder={`Enter your ${key}`}
+                    className={`w-full px-3 py-2 border rounded-md ${
+                      formErrors[key as keyof typeof formErrors]
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    }`}
+                  />
+                  {formErrors[key as keyof typeof formErrors] && (
+                    <p className="text-sm text-red-500">
+                      {`${key.replace(/([A-Z])/g, " $1")} is required`}
+                    </p>
+                  )}
                 </div>
-              </div>
+              ))}
+              <button
+                onClick={handlePlaceOrder}
+                className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 hover:bg-blue-600"
+              >
+                Place Order
+              </button>
             </div>
           </div>
         </div>
@@ -118,4 +191,4 @@ const CheckoutPage = () => {
   );
 };
 
-export default CheckoutPage;
+export default Checkout;
