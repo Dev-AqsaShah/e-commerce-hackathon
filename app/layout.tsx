@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/Components/Header";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Suspense } from "react"; // Suspense is needed for async components
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,13 +21,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        
-        <Header />
-        <Navbar />
-        {children}
-        <Footer />
-        </body>
+      {/* Use Suspense for wrapping ClerkProvider */}
+      <Suspense fallback={<div>Loading Clerk...</div>}>
+        <ClerkProvider>
+          <body className={inter.className}>
+            <Header />
+            <Navbar />
+            {children}
+            <Footer />
+          </body>
+        </ClerkProvider>
+      </Suspense>
     </html>
   );
 }
