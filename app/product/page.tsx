@@ -15,8 +15,10 @@ const Shoes = () => {
   const [products, setProducts] = useState<product[]>([]);
 
   useEffect(() => {
+    console.log();
+    
     async function fetchProducts() {
-      const data: product[] = await client.fetch(allProducts);
+      const data: product[] = await client.fetch(`*[_type == "product"]`);
       setProducts(data);
     }
     fetchProducts();
@@ -42,7 +44,7 @@ const Shoes = () => {
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {products.map((product) => (
-          <Link href={`/product/${product.slug?.current}`} key={product._id}>
+          <Link href={`/product/${product._id}`} key={product._id}>
             <div className="border rounded-lg shadow-md hover:shadow-lg transition p-4 cursor-pointer">
               {product.image && (
                 <Image

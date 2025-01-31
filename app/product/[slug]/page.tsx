@@ -94,34 +94,25 @@
 //     </div>
 //   );
 // }
+"use client"
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { groq } from "next-sanity";
 import Image from "next/image";
-import React from "react";
+import React, {useEffect, useState } from "react";
 
 interface ProductPageProps {
   params: { slug: string };
 }
 
-async function getProductBySlug(slug: string) {
-  const query = groq`*[_type == "product" && slug.current == $slug][0]{
-    _id,
-    productName,
-    description,
-    price,
-    image,
-    category,
-    color,
-    size
-  }`;
-  const product = await client.fetch(query, { slug });
-  return product;
-}
-
-export default async function ProductPage({ params }: ProductPageProps) {
-  const { slug } = params;
-  const product = await getProductBySlug(slug);
+export default function ProductPage({ params }: ProductPageProps) {
+  const [product, setProduct] = useState<any>();
+  useEffect(() => {
+    (async() => {
+      const data = await client.fetch(`*[_type == "product" && _id == "${params.slug}"][0]`);
+      setProduct(data);
+  })();
+}, [])
 
   if (!product) {
     return <div className="text-center text-red-500">Product not found!</div>;

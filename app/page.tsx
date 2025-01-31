@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import SHOES from "@/Components/shoes/page";
 
 
@@ -53,7 +52,6 @@ export default function PageSections() {
 
 
 {/* section 2 */}
-
     <SHOES />
 
 

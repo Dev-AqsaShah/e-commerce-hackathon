@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation"; // useRouter import karo
 import { product } from "@/types/products";
 import React, { useEffect, useState } from "react";
 import { getItems } from "../actions/actions";
@@ -10,6 +11,7 @@ import { FaChevronRight } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const Checkout = () => {
+  const router = useRouter(); // useRouter ka instance
   const [cartItems, setCartItems] = useState<product[]>([]);
   const [discount, setDiscount] = useState<number>(0);
   const [formValues, setFormValues] = useState({
@@ -72,12 +74,13 @@ const Checkout = () => {
       localStorage.removeItem("appliedDiscount");
       Swal.fire({
         title: "Order Placed Successfully!",
-        text: "Thank you for your purchase. Your order has been placed.",
+        text: "Redirecting to payment...",
         icon: "success",
         confirmButtonText: "OK",
         confirmButtonColor: "#3085d6",
       }).then(() => {
         setCartItems([]); // Clear the cart after the order is placed
+        router.push("/stripe"); // Stripe page pe redirect karo
       });
     } else {
       // If the form is invalid
