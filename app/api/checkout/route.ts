@@ -2,16 +2,23 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2025-01-27.acacia",
+  apiVersion: "2023-10-16" as any, // Ignores TypeScript error
 });
+
+
+
+interface Item {
+  productName: string;
+  price: number;
+}
 
 export async function POST(req: Request) {
   try {
-    const { items } = await req.json();
+    const { items }: { items: Item[] } = await req.json();
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
-      line_items: items.map((item: any) => ({
+      line_items: items.map((item) => ({
         price_data: {
           currency: "usd",
           product_data: {
