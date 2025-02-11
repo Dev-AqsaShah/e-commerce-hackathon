@@ -25,14 +25,14 @@ const Shoes = () => {
   const handleAddToCart = (e: React.MouseEvent, product: product) => {
     e.preventDefault()
     Swal.fire({
-      position : "top-right",
-      icon : "success",
-      title : `${product.productName} added to cart`,
-      showConfirmButton : false,
-      timer : 2000
+      position: "top-right",
+      icon: "success",
+      title: `${product.productName} added to cart`,
+      showConfirmButton: false,
+      timer: 2000
     })
     addToCart(product)
-    
+
   }
 
   return (
@@ -41,35 +41,39 @@ const Shoes = () => {
         Our Latest Products
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {products.map((product) => (
-          <Link href={`/product/${product._id}`} key={product._id}>
-            <div className="border rounded-lg shadow-md hover:shadow-lg transition p-4 cursor-pointer">
-              {product.image && (
-                <Image
-                  src={urlFor(product.image).url()}
-                  alt={product.productName}
-                  width={200}
-                  height={200}
-                  className="w-full h-48 object-cover rounded-md"
-                />
-              )}
-              <h2 className="text-lg font-semibold mt-4 text-gray-700">
-                {product.productName}
-              </h2>
-              <p className="text-gray-600 mt-2">
-                <span className="font-medium text-gray-800">
-                  ${product.price}
-                </span>
-              </p>
-              <button
-              className="bg-gradient-to-r from-green-500 to-green-800 text-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:scale-110 transition-transform duration-300 ease-in-out"
-              onClick={(e) => handleAddToCart(e, product) }
-              >
-                Add To Cart
-              </button>
-            </div>
-          </Link>
-        ))}
+        {products.map((product, index) => {
+          console.log(`Product ${index} ID:`, product._id); // Debugging
+
+          return (
+            <Link href={`/product/${product._id}`} key={product._id}>
+              <div className="border rounded-lg shadow-md hover:shadow-lg transition p-4 cursor-pointer">
+                {product.image && (
+                  <Image
+                    src={urlFor(product.image).url()}
+                    alt={product.productName}
+                    width={200}
+                    height={200}
+                    className="w-full h-48 object-cover rounded-md"
+                  />
+                )}
+                <h2 className="text-lg font-semibold mt-4 text-gray-700">
+                  {product.productName}
+                </h2>
+                <p className="text-gray-600 mt-2">
+                  <span className="font-medium text-gray-800">
+                    ${product.price}
+                  </span>
+                </p>
+                <button
+                  className="bg-gradient-to-r from-green-500 to-green-800 text-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:scale-110 transition-transform duration-300 ease-in-out"
+                  onClick={(e) => handleAddToCart(e, product)}
+                >
+                  Add To Cart
+                </button>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
