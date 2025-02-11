@@ -46,8 +46,8 @@ export async function POST(req: Request) {
         quantity: 1,
       })),
       mode: "payment",
-      success_url: `${baseUrl}/success`,
-      cancel_url: `${baseUrl}/cancel`,
+      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success`,
+      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/cancel`,
     });
 
     return NextResponse.json({ sessionId: session.id });
