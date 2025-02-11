@@ -42,7 +42,7 @@ const Shoes = () => {
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {products.map((product) => (
-          <Link href={`/product/${product._id}`} key={product._id}>
+          <Link href={`/products/${product._id}`} key={product._id}>
             <div className="border rounded-lg shadow-md hover:shadow-lg transition p-4 cursor-pointer">
               {product.image && (
                 <Image

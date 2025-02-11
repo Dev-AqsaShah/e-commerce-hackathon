@@ -5,7 +5,7 @@ import Header from "@/Components/Header";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
-
+``
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
